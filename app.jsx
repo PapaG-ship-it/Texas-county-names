@@ -406,7 +406,12 @@ Return ONLY a JSON object (no markdown, no backticks) with these exact keys:
     try {
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers:headers: {
+  "Content-Type": "application/json",
+  "x-api-key": "YOUR-KEY-HERE",
+  "anthropic-version": "2023-06-01",
+  "anthropic-dangerous-direct-browser-access": "true"
+},
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
           max_tokens: 1000,
